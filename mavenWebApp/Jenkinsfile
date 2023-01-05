@@ -1,0 +1,20 @@
+pipeline {
+    
+    agent any 
+    tools {
+        maven 'maven-3.8.6'
+    }
+
+    stages{
+        stage('test'){
+            step{
+                sh 'mvn test'
+            }
+        }
+        stage('build'){
+            step{
+                sh 'mvn clean package'
+            }
+        }
+    }
+}
